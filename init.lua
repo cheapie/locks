@@ -455,12 +455,7 @@ function locks:lock_handle_input( pos, formname, fields, player )
 
 
    -- is this input the lock is supposed to handle?
-   if(  ( not( fields.locks_sent_lock_command )
-       or fields.locks_sent_lock_command == "" )
-      and (fields.quit and (fields.quit==true or fields.quit=='true'))) then
---    or not( fields.locks_sent_input )
-     return;
-   end
+   if fields.quit or not fields.locks_sent_lock_command then return end
 
    if( fields.locks_sent_lock_command == "/help" ) then
 
